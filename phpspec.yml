@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Crimibook
+        psr4_prefix: Crimibook
+        src_path: app
