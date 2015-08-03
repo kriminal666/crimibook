@@ -26,7 +26,6 @@ class AuthController extends Controller
     /**
      * Create a new authentication controller instance.
      *
-     * @return void
      */
     public function __construct()
     {
@@ -62,4 +61,24 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function getLogin()
+    {
+        return View('auth.login');
+    }
+
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function getRegister()
+    {
+        return View('auth.register');
+    }
 }
+
+
+
+
