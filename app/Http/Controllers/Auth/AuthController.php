@@ -23,6 +23,10 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+
+    protected $redirectPath = '/home_page';
+
+
     /**
      * Create a new authentication controller instance.
      *
@@ -35,7 +39,7 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -50,7 +54,7 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return User
      */
     protected function create(array $data)
@@ -60,22 +64,6 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-    }
-
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function getLogin()
-    {
-        return View('auth.login');
-    }
-
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function getRegister()
-    {
-        return View('auth.register');
     }
 }
 

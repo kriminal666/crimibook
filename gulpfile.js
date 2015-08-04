@@ -17,6 +17,14 @@ elixir(function(mix) {
 
             'libs/sweetalert-dev.js'
         ], './public/js/libs.js')
+
+        .scripts([
+            'libs/bootstrap.js'
+        ], './public/js/bootstrap.js')
+        .scripts([
+            'libs/jquery-2.1.4.min.js'
+        ], './public/js/jquery-2.1.4.min.js')
+
         .styles([
 
             'libs/sweetalert.css'

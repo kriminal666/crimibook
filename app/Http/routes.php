@@ -11,21 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'Home\HomeController@index');
 
-
-// Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
-
-Route::get('contact', 'Home\HomeController@contact');
 Route::controllers([
+    'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
+////Authentication routes...
+//Route::get('auth/login', 'Auth\AuthController@getLogin');
+//Route::post('auth/login', 'Auth\AuthController@postLogin');
+//Route::get('auth/logout', 'Auth\AuthController@getLogout');
+//
+//// Registration routes...
+//Route::get('auth/register', 'Auth\AuthController@getRegister');
+//Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+Route::get('contact', 'Home\HomeController@contact');
+Route::get('about', 'Home\HomeController@about');
+
+Route::get('home_page',['middleware' => 'auth', function() {
+    return View('crimibook.home_page');
+}]);
+
+
+
+
