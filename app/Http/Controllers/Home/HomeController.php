@@ -10,6 +10,13 @@ use Crimibook\Http\Controllers\Controller;
 class HomeController extends Controller
 {
 
+    protected $redirectTo = '/home_page';
+
+    function __construct()
+    {
+        $this->middleware('guest');
+    }
+
 
     /**
      * @return \Illuminate\View\View

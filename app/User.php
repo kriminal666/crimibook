@@ -2,6 +2,7 @@
 
 namespace Crimibook;
 
+
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -32,4 +33,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+    //Relations
+
+    /**
+     * This has many Status
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function statuses()
+    {
+        return $this->hasMany('Crimibook\Models\Status','user_id');
+    }
 }

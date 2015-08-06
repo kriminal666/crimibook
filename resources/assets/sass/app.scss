@@ -1,5 +1,12 @@
  @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-body {
+ body {
   padding-top: 70px;
-}
+ }
+
+ .error {
+   color: red;
+   font-style: italic;
+   font-size: .9em;
+
+ }

@@ -2,9 +2,11 @@
 
 namespace Crimibook\Exceptions;
 
+use Crimibook\Http\Utils\Validator\FormValidationException;
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+
 
 class Handler extends ExceptionHandler
 {
@@ -39,6 +41,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($e instanceof FormValidationException) {
+
+            return back()->withInput()->withErrors($e->getErrors());
+        }
+
         return parent::render($request, $e);
     }
 }

@@ -22,9 +22,9 @@ Route::controllers([
 Route::get('contact', 'Home\HomeController@contact');
 Route::get('about', 'Home\HomeController@about');
 
-Route::get('home_page',['middleware' => 'auth', function() {
-    return View('crimibook.home_page');
-}]);
+Route::resource('crimibook','Crimibook\CrimibookController');
+
+Route::resource('status', 'Status\StatusController');
 
 
 

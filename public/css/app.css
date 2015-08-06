@@ -5994,4 +5994,9 @@ button.close {
 body {
   padding-top: 70px; }
 
+.error {
+  color: red;
+  font-style: italic;
+  font-size: .9em; }
+
 /*# sourceMappingURL=app.css.map */
