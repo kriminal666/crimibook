@@ -4,6 +4,7 @@ namespace Crimibook\Http\Controllers\Status;
 
 use Crimibook\Http\Utils\Validator\StatusForm;
 use Crimibook\Models\Status;
+use Crimibook\User;
 use Illuminate\Http\Request;
 
 use Crimibook\Http\Requests;
@@ -50,7 +51,13 @@ class StatusController extends Controller
     public function store(Request $request)
     {
         $this->statusForm->validate($request->all());
+
+        $status = Status::fromForm($request);
+
+        User::whoHas($request->user_id)->publishStatus($status);
+
         flash()->success('Status', 'Status created');
+
         return View('crimibook.home_page', array('statuses' => Status::whereUserId($request->user_id)->get()));
 
     }

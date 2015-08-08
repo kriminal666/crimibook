@@ -3,6 +3,7 @@
 namespace Crimibook;
 
 
+use Crimibook\Models\Status;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -33,6 +34,29 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * Search the user with id
+     * @param $id
+     * @return mixed
+     */
+    public static function whoHas($id)
+    {
+
+        return static::where(compact('id'))->first();
+
+    }
+
+    /**
+     * Add user status
+     *
+     * @param Status $status
+     * @return Model
+     */
+    public function publishStatus(Status $status)
+    {
+        return $this->statuses()->save($status);
+    }
 
 
     //Relations
