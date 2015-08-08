@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "905276cb200f986ec64b5c6caf18a031",
+    "hash": "0ef418ffdf04c9b5e13acc715faf1124",
     "packages": [
+        {
+            "name": "caffeinated/presenter",
+            "version": "v2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caffeinated/presenter.git",
+                "reference": "e7e936a199eb570e0a20b231fcd574d9ff66862d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caffeinated/presenter/zipball/e7e936a199eb570e0a20b231fcd574d9ff66862d",
+                "reference": "e7e936a199eb570e0a20b231fcd574d9ff66862d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.1.*",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Caffeinated\\Presenter\\": "src/Caffeinated/Presenter/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shea Lewis",
+                    "email": "shea.lewis89@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 View Presenters",
+            "keywords": [
+                "caffeinated",
+                "laravel",
+                "presenter",
+                "view"
+            ],
+            "time": "2015-06-26 19:23:22"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "2.0.0",

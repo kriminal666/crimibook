@@ -13,3 +13,5 @@ function flash($title = null, $message=null)
 
     return $flash->info($title, $message);
 }
+
+

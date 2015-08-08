@@ -5999,4 +5999,11 @@ body {
   font-style: italic;
   font-size: .9em; }
 
+.nav-gravatar {
+  float: left;
+  position: relative;
+  top: -6px;
+  left: -0px;
+  border: 1px solid #555; }
+
 /*# sourceMappingURL=app.css.map */

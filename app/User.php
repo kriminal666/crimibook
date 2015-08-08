@@ -3,6 +3,7 @@
 namespace Crimibook;
 
 
+use Caffeinated\Presenter\Traits\PresentableTrait;
 use Crimibook\Models\Status;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +13,9 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword;
+    use Authenticatable, CanResetPassword, PresentableTrait;
+
+    protected $presenter = 'Crimibook\Presenters\UserPresenter';
 
     /**
      * The database table used by the model.
