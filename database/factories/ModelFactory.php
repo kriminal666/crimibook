@@ -15,7 +15,19 @@ $factory->define(Crimibook\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'password' => bcrypt('secret'),
+
+    ];
+});
+
+
+$factory->define(Crimibook\Models\Status::class, function (Faker\Generator $faker) {
+
+    $userIds = Crimibook\User::lists('id')->all();
+
+    return [
+        'user_id' => $faker->randomElement($userIds),
+        'body' => $faker->sentence()
+
     ];
 });

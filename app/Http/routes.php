@@ -27,6 +27,8 @@ Route::resource('crimibook','Crimibook\CrimibookController');
 
 Route::resource('status', 'Status\StatusController');
 
+Route::get('users', 'Users\UsersController@index');
+
 
 
 
