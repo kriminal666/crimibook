@@ -2,6 +2,7 @@
 
 namespace Crimibook\Http\Controllers\Crimibook;
 
+use Crimibook\Models\Status;
 use Illuminate\Http\Request;
 
 use Crimibook\Http\Requests;
@@ -17,8 +18,9 @@ class CrimibookController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return View('crimibook.home_page', array('statuses' => $user->statuses));
+        $statuses = Auth::User()->statuses->sortByDesc('created_at');
+
+        return View('crimibook.home_page', array('statuses' => $statuses));
     }
 
     /**

@@ -5992,7 +5992,8 @@ button.close {
     display: none !important; } }
 
 body {
-  padding-top: 70px; }
+  padding-top: 70px;
+  background: #e3e3e3; }
 
 .error {
   color: red;
@@ -6000,10 +6001,17 @@ body {
   font-size: .9em; }
 
 .nav-gravatar {
-  float: left;
+  border-radius: 50%;
+  float: right;
   position: relative;
   top: -6px;
   left: -0px;
   border: 1px solid #555; }
+
+.status-media {
+  border: 1px solid #e3e3e3;
+  background: white;
+  padding: 1em;
+  margin-bottom: 2em; }
 
 /*# sourceMappingURL=app.css.map */

@@ -17,7 +17,8 @@ class StatusForm extends FormValidator {
      * @var array
      */
     protected $rules = [
-        'body' => 'required'
+        'body' => 'required',
+        'image_path' => 'mimes:jpg,jpeg,png,bmp'
     ];
 
 }

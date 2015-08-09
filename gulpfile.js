@@ -25,6 +25,10 @@ elixir(function(mix) {
             'libs/jquery-2.1.4.min.js'
         ], './public/js/jquery-2.1.4.min.js')
 
+        .scripts([
+            'libs/crimibook.js'
+        ], './public/js/crimibook.js')
+
         .styles([
 
             'libs/sweetalert.css'

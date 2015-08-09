@@ -6,6 +6,7 @@
     <title>Crimibook</title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/libs.css">
+
 </head>
 <body>
 
@@ -28,12 +29,12 @@
                 <li><a href="{{url('contact')}}">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                @if (Auth::user())
+                @if (Auth::User())
                     <li class="dropdown">
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img class="nav-gravatar" src="{{Auth::user()->present()->gravatar}}" alt="{{Auth::User()->username}}">
-                            {{ Auth::user()->name }}
+                            <img class="nav-gravatar" src="{{Auth::User()->present()->gravatar}}" alt="{{Auth::User()->name}}">
+                            {{ Auth::User()->name }}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
@@ -42,7 +43,7 @@
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="https://es.gravatar.com">Create gravatar</a></li>
+                            <li><a target="_blank" href="https://es.gravatar.com">Create gravatar</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
                         </ul>
@@ -62,6 +63,7 @@
 <script src="/js/bootstrap.js"></script>
 
 <script src="/js/libs.js"></script>
+<script src="/js/crimibook.js"></script>
 @include('flash')
 
 

@@ -16,7 +16,7 @@ class CreateStatusesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('body');
-            $table->binary('image')->nullable();
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use Crimibook\Http\Requests;
 use Crimibook\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 
 class StatusController extends Controller
@@ -57,10 +58,12 @@ class StatusController extends Controller
         User::whoHas($request->user_id)->publishStatus($status);
 
         flash()->success('Status', 'Status created');
+        $statuses = Auth::User()->statuses->sortByDesc('created_at');
 
-        return View('crimibook.home_page', array('statuses' => Status::whereUserId($request->user_id)->get()));
+        return View('crimibook.home_page', array('statuses' => $statuses));
 
     }
+
 
     /**
      * Display the specified resource.
