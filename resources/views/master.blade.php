@@ -32,8 +32,8 @@
                 @if (Auth::User())
                     <li class="dropdown">
 
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img class="nav-gravatar" src="{{Auth::User()->present()->gravatar}}" alt="{{Auth::User()->name}}">
+                        <a href="#" class="dropdown-toggle user-dropdown" data-toggle="dropdown" role="button" aria-expanded="false">
+                            @include('partials.avatar', ['user' => Auth::user()])
                             {{ Auth::User()->name }}
                             <span class="caret"></span>
                         </a>

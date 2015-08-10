@@ -21,7 +21,7 @@ class UserRepository {
      */
     public function getPaginated($howMany = 25)
     {
-        return User::simplePaginate($howMany);
+        return User::paginate($howMany);
     }
 
 }

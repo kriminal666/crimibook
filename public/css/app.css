@@ -6000,7 +6000,7 @@ body {
   font-style: italic;
   font-size: .9em; }
 
-.nav-gravatar {
+.user-dropdown .nav-gravatar {
   border-radius: 50%;
   float: right;
   position: relative;
@@ -6013,5 +6013,14 @@ body {
   background: white;
   padding: 1em;
   margin-bottom: 2em; }
+
+.users {
+  margin-bottom: 3em; }
+
+.user-block {
+  text-align: center; }
+  .user-block .avatar {
+    margin: auto;
+    border-radius: 50%; }
 
 /*# sourceMappingURL=app.css.map */
