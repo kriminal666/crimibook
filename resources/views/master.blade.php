@@ -39,8 +39,8 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
 
+                            <li><a href="{{route('profile_path',Auth::user()->name) }}">Your profile</a></li>
                             <li><a href="{{url('users')}}">List users</a></li>
-                            <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a target="_blank" href="https://es.gravatar.com">Create gravatar</a></li>

@@ -29,6 +29,11 @@ Route::resource('status', 'Status\StatusController');
 
 Route::get('users', 'Users\UsersController@index');
 
+Route::get('@{name}',[
+    'as' => 'profile_path',
+    'uses' => 'Users\UsersController@show'
+]);
+
 
 
 
