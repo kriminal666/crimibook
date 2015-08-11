@@ -61,12 +61,15 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param $name
      * @return Response
+     * @internal param int $id
      */
-    public function show($id)
+    public function show($name)
     {
-        return 'show profile';
+        $user = $this->userRepository->findByName($name);
+
+        return View::make('users.profile')->withUser($user);
     }
 
     /**

@@ -31,8 +31,6 @@ class Status extends Model
     public static function fromForm(Request $request)
     {
         $status = new static;
-
-        $status->user_id = $request->user_id;
         $status->body = $request->body;
         if($request->file('image_path'))
         {

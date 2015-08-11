@@ -6001,12 +6001,14 @@ body {
   font-size: .9em; }
 
 .user-dropdown .nav-gravatar {
-  border-radius: 50%;
   float: right;
   position: relative;
   top: -6px;
   left: -0px;
   border: 1px solid #555; }
+
+.avatar {
+  border-radius: 50%; }
 
 .status-media {
   border: 1px solid #e3e3e3;
@@ -6020,7 +6022,6 @@ body {
 .user-block {
   text-align: center; }
   .user-block .avatar {
-    margin: auto;
-    border-radius: 50%; }
+    margin: auto; }
 
 /*# sourceMappingURL=app.css.map */

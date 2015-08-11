@@ -24,4 +24,30 @@ class UserRepository {
         return User::orderBy('name', 'asc')->paginate($howMany);
     }
 
+    /**
+     * find user by name
+     *
+     * @param $name
+     * @return mixed
+     */
+    public function findByName($name)
+    {
+
+        return User::whereName($name)->first();
+
+    }
+
+    /**
+     * Find user by id
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function findById($id)
+    {
+
+        return User::whereId($id)->first();
+
+    }
+
 }

@@ -30,7 +30,7 @@ class StatusController extends Controller
      */
     public function index()
     {
-        return View('status.index');
+
     }
 
     /**
@@ -55,12 +55,11 @@ class StatusController extends Controller
 
         $status = Status::fromForm($request);
 
-        User::whoHas($request->user_id)->publishStatus($status);
+        User::whoHas(Auth::user()->id)->publishStatus($status);
 
         flash()->success('Status', 'Status created');
-        $statuses = Auth::User()->statuses->sortByDesc('created_at');
 
-        return View('crimibook.home_page', array('statuses' => $statuses));
+        return back();
 
     }
 

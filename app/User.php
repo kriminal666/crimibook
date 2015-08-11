@@ -11,6 +11,10 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
+/**
+ * Class User
+ * @package Crimibook
+ */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
     use Authenticatable, CanResetPassword, PresentableTrait;
@@ -59,6 +63,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function publishStatus(Status $status)
     {
         return $this->statuses()->save($status);
+    }
+
+
+    /**
+     * Determine if User is auth user
+     * @param $user
+     * @return bool
+     */
+    public function is($user)
+    {
+        return $this->id == $user->id;
     }
 
 
