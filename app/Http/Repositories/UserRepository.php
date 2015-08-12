@@ -46,7 +46,21 @@ class UserRepository {
     public function findById($id)
     {
 
-        return User::whereId($id)->first();
+        return User::findOrFail($id);
+
+    }
+
+    /**
+     * User follows another user
+     *
+     * @param $userToFollow
+     * @param User $user
+     * @return mixed
+     */
+    public function follow($userToFollow, User $user)
+    {
+
+        return $user->follows()->attach($userToFollow);
 
     }
 

@@ -33,7 +33,7 @@
                     <li class="dropdown">
 
                         <a href="#" class="dropdown-toggle user-dropdown" data-toggle="dropdown" role="button" aria-expanded="false">
-                            @include('partials.avatar', ['user' => Auth::user()])
+                            <img class="nav-gravatar media-object avatar" src="{{ Auth::User()->present()->gravatar }}" alt="{{ Auth::User()->name }}">
                             {{ Auth::User()->name }}
                             <span class="caret"></span>
                         </a>

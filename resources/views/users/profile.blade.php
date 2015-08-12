@@ -12,6 +12,9 @@
                     <h1>{{$user->name}}</h1>
                     @include('partials.avatar',['size' => 70])
 
+
+                    @include('partials.follow-form')
+
                 </div>
                 <div class="col-md-6">
                     @if($user->is(Auth::User()))

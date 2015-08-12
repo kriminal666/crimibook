@@ -1,35 +1,30 @@
 <?php
 
-namespace Crimibook\Http\Controllers\Status;
+namespace Crimibook\Http\Controllers\Follows;
 
-use Crimibook\Http\Repositories\StatusRepository;
-use Crimibook\Http\Utils\Validator\StatusForm;
-use Crimibook\Models\Status;
-use Crimibook\User;
+use Crimibook\Http\Repositories\FollowRepository;
 use Illuminate\Http\Request;
 
 use Crimibook\Http\Requests;
 use Crimibook\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-
-class StatusController extends Controller
+class FollowsController extends Controller
 {
-
-    /**
-     * @var StatusForm
-     */
-    protected $statusForm;
     /**
      * @var
      */
-    protected $statusRepo;
+    protected $followRepo;
 
-    function __construct(StatusForm $statusForm, StatusRepository $statusRepository)
+    /**
+     * Constructor
+     *
+     * @param FollowRepository $followRepo
+     */
+    function __construct(FollowRepository$followRepo)
     {
         $this->middleware('auth');
-        $this->statusForm = $statusForm;
-        $this->statusRepo = $statusRepository;
+        $this->followRepo = $followRepo;
     }
 
 
@@ -40,7 +35,7 @@ class StatusController extends Controller
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -54,30 +49,28 @@ class StatusController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Follow a user
      *
-     * @param  Request $request
+     * @param  Request  $request
      * @return Response
      */
     public function store(Request $request)
     {
-        $this->statusForm->validate($request->all());
 
-        $status = Status::fromForm($request);
+        $input = array_add($request->only('userToFollow') , 'user_id', Auth::id());
 
-        User::whoHas(Auth::user()->id)->publishStatus($status);
+        $this->followRepo->followUser($input);
 
-        flash()->success('Status', 'Status created');
+        flash()->success('Following', 'You are following this user');
 
         return back();
 
     }
 
-
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return Response
      */
     public function show($id)
@@ -88,7 +81,7 @@ class StatusController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return Response
      */
     public function edit($id)
@@ -99,8 +92,8 @@ class StatusController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param  Request  $request
+     * @param  int  $id
      * @return Response
      */
     public function update(Request $request, $id)
@@ -109,9 +102,9 @@ class StatusController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * UnFollow a user
      *
-     * @param  int $id
+     * @param  int  $id
      * @return Response
      */
     public function destroy($id)

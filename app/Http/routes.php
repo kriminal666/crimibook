@@ -34,6 +34,11 @@ Route::get('@{name}',[
     'uses' => 'Users\UsersController@show'
 ]);
 
+/**
+ * Follows
+ */
+Route::resource('follows', 'Follows\FollowsController');
+
 
 
 

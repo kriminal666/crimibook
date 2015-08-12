@@ -77,6 +77,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
 
+    public function isFollowedBy(User $otherUser)
+    {
+
+        $idsWhoOtherUserFollows = $otherUser->follows()->lists('followed_id')->all();
+
+        return in_array($this->id, $idsWhoOtherUserFollows);
+
+
+    }
+
+
     //Relations
 
     /**
@@ -87,4 +98,18 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany('Crimibook\Models\Status','user_id');
     }
+
+    /**
+     * This can follow to many users
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function follows()
+    {
+        return $this->belongsToMany(self::class, 'follows', 'follower_id', 'followed_id')
+                    ->withTimestamps();
+    }
+
+
+
 }

@@ -2,6 +2,7 @@
 
 namespace Crimibook\Http\Controllers\Crimibook;
 
+use Crimibook\Http\Repositories\StatusRepository;
 use Crimibook\Models\Status;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,14 @@ use Illuminate\Support\Facades\Auth;
 
 class CrimibookController extends Controller
 {
+
+    protected $statusRepo;
+
+    function __construct(StatusRepository $statusRepo)
+    {
+        $this->statusRepo = $statusRepo;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +27,7 @@ class CrimibookController extends Controller
      */
     public function index()
     {
-        $statuses = Auth::User()->statuses->sortByDesc('created_at');
+        $statuses =  $this->statusRepo->getFeedForUser(Auth::user());
 
         return View('crimibook.home_page', array('statuses' => $statuses));
     }

@@ -12,8 +12,9 @@
         @endif
 
         {{$status->body}}
-        @if($user->is(Auth::User()))
+
+        @if($status->users->is(Auth::User()))
             <a href="#"  class="btn btn-danger pull-right">X</a>
-        @endIf
+            @endIf
     </div>
 </article>
