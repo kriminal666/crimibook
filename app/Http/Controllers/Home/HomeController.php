@@ -2,14 +2,17 @@
 
 namespace Crimibook\Http\Controllers\Home;
 
-use Illuminate\Http\Request;
-
-use Crimibook\Http\Requests;
 use Crimibook\Http\Controllers\Controller;
+use Crimibook\Http\Requests;
 
 class HomeController extends Controller
 {
 
+    /**
+     * Path to redirect
+     *
+     * @var string
+     */
     protected $redirectTo = '/home_page';
 
     function __construct()

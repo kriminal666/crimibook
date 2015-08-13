@@ -9,7 +9,8 @@
 namespace Crimibook\Http\Repositories;
 
 
-class FollowRepository {
+class FollowRepository
+{
 
     /**
      * @var UserRepository
@@ -43,11 +44,16 @@ class FollowRepository {
         return $this->userRepo->follow($input['userToFollow'], $user);
 
 
-
-
     }
 
+    public function unFollowUser($input)
+    {
 
+        $user = $this->userRepo->findById($input['user_id']);
+
+        return $this->userRepo->unFollow($input['userIdToUnFollow'], $user);
+
+    }
 
 
 }

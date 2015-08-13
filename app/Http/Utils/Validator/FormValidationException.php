@@ -12,7 +12,8 @@ namespace Crimibook\Http\Utils\Validator;
 use Exception;
 use Illuminate\Support\MessageBag;
 
-class FormValidationException extends Exception {
+class FormValidationException extends Exception
+{
 
     /**
      * @var MessageBag

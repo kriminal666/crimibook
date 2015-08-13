@@ -2,11 +2,11 @@
 
 namespace Crimibook\Http\Controllers\Auth;
 
-use Crimibook\User;
-use Validator;
 use Crimibook\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Crimibook\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Validator;
 
 class AuthController extends Controller
 {

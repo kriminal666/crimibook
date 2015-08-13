@@ -5,11 +5,12 @@ namespace Crimibook;
 
 use Caffeinated\Presenter\Traits\PresentableTrait;
 use Crimibook\Models\Status;
+use Crimibook\Traits\FollowableTrait;
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class User
@@ -17,7 +18,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword, PresentableTrait;
+    use Authenticatable, CanResetPassword, PresentableTrait, FollowableTrait;
 
     protected $presenter = 'Crimibook\Presenters\UserPresenter';
 
@@ -44,6 +45,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     /**
      * Search the user with id
+     *
      * @param $id
      * @return mixed
      */
@@ -68,6 +70,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     /**
      * Determine if User is auth user
+     *
      * @param $user
      * @return bool
      */
@@ -77,39 +80,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
 
-    public function isFollowedBy(User $otherUser)
-    {
-
-        $idsWhoOtherUserFollows = $otherUser->follows()->lists('followed_id')->all();
-
-        return in_array($this->id, $idsWhoOtherUserFollows);
-
-
-    }
-
-
-    //Relations
-
     /**
      * This has many Status
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function statuses()
     {
-        return $this->hasMany('Crimibook\Models\Status','user_id');
+        return $this->hasMany('Crimibook\Models\Status', 'user_id');
     }
-
-    /**
-     * This can follow to many users
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function follows()
-    {
-        return $this->belongsToMany(self::class, 'follows', 'follower_id', 'followed_id')
-                    ->withTimestamps();
-    }
-
 
 
 }

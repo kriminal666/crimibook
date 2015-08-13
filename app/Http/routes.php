@@ -23,13 +23,13 @@ Route::controllers([
 Route::get('contact', 'Home\HomeController@contact');
 Route::get('about', 'Home\HomeController@about');
 
-Route::resource('crimibook','Crimibook\CrimibookController');
+Route::resource('crimibook', 'Crimibook\CrimibookController');
 
 Route::resource('status', 'Status\StatusController');
 
 Route::get('users', 'Users\UsersController@index');
 
-Route::get('@{name}',[
+Route::get('@{name}', [
     'as' => 'profile_path',
     'uses' => 'Users\UsersController@show'
 ]);

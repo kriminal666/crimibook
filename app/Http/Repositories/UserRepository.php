@@ -11,7 +11,8 @@ namespace Crimibook\Http\Repositories;
 
 use Crimibook\User;
 
-class UserRepository {
+class UserRepository
+{
 
 
     /**
@@ -61,6 +62,20 @@ class UserRepository {
     {
 
         return $user->follows()->attach($userToFollow);
+
+    }
+
+    /**
+     * UnFollow a user
+     *
+     * @param $userToUnFollow
+     * @param User $user
+     * @return mixed
+     */
+    public function unFollow($userToUnFollow, User $user)
+    {
+
+        return $user->follows()->detach($userToUnFollow);
 
     }
 

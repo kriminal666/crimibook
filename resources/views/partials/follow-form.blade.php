@@ -1,11 +1,22 @@
 
 @if($user->isFollowedBy(Auth::User()))
 
-    <p>You are following {{$user->name}}</p>
+    {!! Form::open(array('url' => ['follows', $user->id], 'method' => 'delete')) !!}
 
-@elseif($user->is(Auth::User()))
+    <div class="form-group">
+
+        {!! Form::hidden('userToFollow', $user->id) !!}
+
+    </div>
+
+    <div class="form-group">
+
+        <button type="submit"  class="btn btn-danger">Unfollow {{$user->name}}</button>
+
+    </div>
 
 
+    {!! Form::close() !!}
 
 @else
 

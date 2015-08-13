@@ -26,8 +26,10 @@ $factory->define(Crimibook\Models\Status::class, function (Faker\Generator $fake
     $userIds = Crimibook\User::lists('id')->all();
 
     return [
+
         'user_id' => $faker->randomElement($userIds),
-        'body' => $faker->sentence()
+        'body' => $faker->sentence(),
+        'created_at' => $faker->dateTime
 
     ];
 });

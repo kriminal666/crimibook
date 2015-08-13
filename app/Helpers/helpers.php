@@ -2,12 +2,11 @@
 
 
 
-function flash($title = null, $message=null)
+function flash($title = null, $message = null)
 {
     $flash = app('Crimibook\Http\Utils\Flash');
 
-    if(func_num_args() == 0)
-    {
+    if (func_num_args() == 0) {
         return $flash;
     }
 

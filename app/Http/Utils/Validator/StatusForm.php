@@ -9,7 +9,8 @@
 namespace Crimibook\Http\Utils\Validator;
 
 
-class StatusForm extends FormValidator {
+class StatusForm extends FormValidator
+{
 
     /**
      * Validation rules for User form

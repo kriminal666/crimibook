@@ -11,7 +11,8 @@ namespace Crimibook\Presenters;
 
 use Caffeinated\Presenter\Presenter;
 
-class StatusPresenter extends Presenter {
+class StatusPresenter extends Presenter
+{
 
 
     /**

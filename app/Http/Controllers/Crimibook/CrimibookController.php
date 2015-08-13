@@ -2,12 +2,10 @@
 
 namespace Crimibook\Http\Controllers\Crimibook;
 
-use Crimibook\Http\Repositories\StatusRepository;
-use Crimibook\Models\Status;
-use Illuminate\Http\Request;
-
-use Crimibook\Http\Requests;
 use Crimibook\Http\Controllers\Controller;
+use Crimibook\Http\Repositories\StatusRepository;
+use Crimibook\Http\Requests;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CrimibookController extends Controller
@@ -17,6 +15,7 @@ class CrimibookController extends Controller
 
     function __construct(StatusRepository $statusRepo)
     {
+        $this->middleware('auth');
         $this->statusRepo = $statusRepo;
     }
 
@@ -27,7 +26,7 @@ class CrimibookController extends Controller
      */
     public function index()
     {
-        $statuses =  $this->statusRepo->getFeedForUser(Auth::user());
+        $statuses = $this->statusRepo->getFeedForUser(Auth::user());
 
         return View('crimibook.home_page', array('statuses' => $statuses));
     }
@@ -45,7 +44,7 @@ class CrimibookController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -56,7 +55,7 @@ class CrimibookController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
@@ -67,7 +66,7 @@ class CrimibookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -78,8 +77,8 @@ class CrimibookController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param  int $id
      * @return Response
      */
     public function update(Request $request, $id)
@@ -90,7 +89,7 @@ class CrimibookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy($id)

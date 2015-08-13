@@ -2,11 +2,10 @@
 
 namespace Crimibook\Http\Controllers\Follows;
 
-use Crimibook\Http\Repositories\FollowRepository;
-use Illuminate\Http\Request;
-
-use Crimibook\Http\Requests;
 use Crimibook\Http\Controllers\Controller;
+use Crimibook\Http\Repositories\FollowRepository;
+use Crimibook\Http\Requests;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class FollowsController extends Controller
@@ -21,7 +20,7 @@ class FollowsController extends Controller
      *
      * @param FollowRepository $followRepo
      */
-    function __construct(FollowRepository$followRepo)
+    function __construct(FollowRepository $followRepo)
     {
         $this->middleware('auth');
         $this->followRepo = $followRepo;
@@ -51,13 +50,13 @@ class FollowsController extends Controller
     /**
      * Follow a user
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function store(Request $request)
     {
 
-        $input = array_add($request->only('userToFollow') , 'user_id', Auth::id());
+        $input = array_add($request->only('userToFollow'), 'user_id', Auth::id());
 
         $this->followRepo->followUser($input);
 
@@ -70,7 +69,7 @@ class FollowsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
@@ -81,7 +80,7 @@ class FollowsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -92,8 +91,8 @@ class FollowsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param  int $id
      * @return Response
      */
     public function update(Request $request, $id)
@@ -104,11 +103,24 @@ class FollowsController extends Controller
     /**
      * UnFollow a user
      *
-     * @param  int  $id
+     * @param $UserIdToUnFollow
      * @return Response
+     * @internal param int $id
      */
-    public function destroy($id)
+    public function destroy($UserIdToUnFollow)
     {
-        //
+        $input = [
+
+            'userIdToUnFollow' => $UserIdToUnFollow,
+            'user_id' => Auth::id()
+        ];
+
+        $this->followRepo->unFollowUser($input);
+
+        flash()->success('unFollowing', 'You are unFollowing this user');
+
+        return back();
+
+
     }
 }

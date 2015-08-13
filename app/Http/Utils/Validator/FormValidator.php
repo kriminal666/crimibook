@@ -10,6 +10,7 @@ namespace Crimibook\Http\Utils\Validator;
 
 use Illuminate\Validation\Factory as Validator;
 use Illuminate\Validation\Validator as ValidatorInstance;
+
 /**
  * Class FormValidator
  * @package Utils\Validator

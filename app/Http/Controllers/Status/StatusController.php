@@ -2,14 +2,13 @@
 
 namespace Crimibook\Http\Controllers\Status;
 
+use Crimibook\Http\Controllers\Controller;
 use Crimibook\Http\Repositories\StatusRepository;
+use Crimibook\Http\Requests;
 use Crimibook\Http\Utils\Validator\StatusForm;
 use Crimibook\Models\Status;
 use Crimibook\User;
 use Illuminate\Http\Request;
-
-use Crimibook\Http\Requests;
-use Crimibook\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 

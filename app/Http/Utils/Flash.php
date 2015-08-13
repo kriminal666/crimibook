@@ -8,7 +8,8 @@
 
 namespace Crimibook\Http\Utils;
 
-class Flash {
+class Flash
+{
 
     /**
      * @param $title
@@ -74,7 +75,6 @@ class Flash {
         return $this->create($title, $message, $level, 'flash_message_overlay');
 
     }
-
 
 
 }

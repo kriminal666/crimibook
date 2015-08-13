@@ -26,14 +26,13 @@ class Status extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id','body', 'image'];
+    protected $fillable = ['user_id', 'body', 'image'];
 
     public static function fromForm(Request $request)
     {
         $status = new static;
         $status->body = $request->body;
-        if($request->file('image_path'))
-        {
+        if ($request->file('image_path')) {
             $status->image_path = static::photo($request->file('image_path'));
         }
 
@@ -61,9 +60,8 @@ class Status extends Model
      */
     public function users()
     {
-        return $this->belongsTo('Crimibook\User','user_id');
+        return $this->belongsTo('Crimibook\User', 'user_id');
     }
-
 
 
 }
