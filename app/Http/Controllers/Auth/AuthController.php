@@ -3,9 +3,12 @@
 namespace Crimibook\Http\Controllers\Auth;
 
 use Crimibook\Http\Controllers\Controller;
+use Crimibook\Mailers\CrimibookMailer;
 use Crimibook\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 
 class AuthController extends Controller
@@ -64,11 +67,67 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        flash()->success('Welcome ' . $user->name, 'Thanks for registering');
+
         return $user;
     }
 
 
+    /**
+     * Override Handle a registration request for the application.
+     *
+     * @param Request $request
+     * @param CrimibookMailer $mailer
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postRegister(Request $request, CrimibookMailer $mailer)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        $user = $this->create($request->all());
+
+        $mailer->sendEmailConfirmationTo($user);
+
+        flash()->overlay('Check your Email', 'Please, now confirm your email address.', 'info');
+
+        return back();
+    }
+
+    /**
+     * Confirm a user's email address.
+     *
+     * @param  string $token
+     * @return mixed
+     */
+    public function confirmEmail($token)
+    {
+        User::whereToken($token)->firstOrFail()->confirmEmail();
+
+        flash()->overlay('Verified', 'Your email has been verified. Please login.', 'info');
+
+        return redirect('auth/login');
+    }
+
+
+    /**
+     * Override Get the needed authorization credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function getCredentials(Request $request)
+    {
+        return  [
+            'email'    => $request->input('email'),
+            'password' => $request->input('password'),
+            'verified' => true
+        ];
+    }
 }
 
 

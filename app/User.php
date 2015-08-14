@@ -69,6 +69,32 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 
     /**
+     * Boot the model.
+     *
+     * @return void
+     */
+    public static function boot()
+    {
+        parent::boot();
+        static::creating(function ($user) {
+            $user->token = str_random(30);
+        });
+    }
+
+    /**
+     * Confirm the user.
+     *
+     * @return void
+     */
+    public function confirmEmail()
+    {
+        $this->verified = true;
+        $this->token = null;
+        $this->save();
+    }
+
+
+    /**
      * Determine if User is auth user
      *
      * @param $user

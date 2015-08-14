@@ -29,25 +29,7 @@ class HomeController extends Controller
         return view('pages.home');
     }
 
-    /**
-     * Contact information
-     * @return Response
-     */
-    public function contact()
-    {
-        flash()->overlay('Contact', 'kriminalaverno@gmail.com', 'info');
-        return back();
-    }
 
-    /**
-     * About Information
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function about()
-    {
-        flash()->overlay('About', 'Crimibook, done with Laravel 5.1 framework', 'info');
-        return back();
-    }
 
 
 }

@@ -1,0 +1,55 @@
+.navbar-fixed-top {
+  background-color: #00BAE9;
+  border-color: #f3f3f3;
+
+
+}
+
+.navbar-inverse .navbar-brand {
+  color: black;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: black;
+}
+
+.navbar-brand {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.navbar-nav >li> a {
+  color: #fff;
+  &:hover{
+    color: #2C6C91;
+  }
+
+}
+
+.navbar-fixed-top .navbar-nav > .active > a {
+
+  background-color: darken(#00BAE9, 10%);
+}
+
+li.dropdown li {
+  height: 35px;
+}
+
+li.dropdown li i.glyphicon {
+  float: left;
+  position: relative;
+  left: 10px;
+  top:15px;
+  z-index: 1001;
+}
+
+li.dropdown li a {
+  float: left;
+  position: relative;
+  left: 15px;
+  bottom: 5px;
+}
+
+.dropdown-menu .divider {
+  margin: 5px 0;
+}

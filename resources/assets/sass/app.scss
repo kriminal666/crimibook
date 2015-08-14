@@ -1,8 +1,18 @@
  @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+ @import "modules/nav";
+ @import "modules/status";
 
  body {
-  padding-top: 70px;
-   background: #e3e3e3;
+   padding-top: 70px;
+   background-color: rgb(240,240,240);
+   font-family: 'Roboto', sans-serif;
+ }
+
+ .page-header {
+   text-align: center;
+   margin-bottom: 1em;
+   padding-bottom: .5em;
+   border-bottom: 1px solid #ddd;
  }
 
  .error {
@@ -17,7 +27,7 @@
     position: relative;
     top: -6px;
     left: -0px;
-    border: 1px solid #555;
+    border: 1px solid rgb(238,238,238);
   }
 
 }
@@ -25,15 +35,6 @@
 .avatar {
   border-radius: 50%;
 }
-
-
- .status-media {
-
-   border: 1px solid #e3e3e3;
-   background: white;
-   padding: 1em;
-   margin-bottom: 2em;
- }
 
  //Users list
  .users {
@@ -45,4 +46,8 @@
      margin: auto;
    }
  }
+
+
+
+
 

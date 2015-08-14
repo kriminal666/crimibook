@@ -19,9 +19,10 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
+Route::get('register/confirm/{token}', 'Auth\AuthController@confirmEmail');
 
-Route::get('contact', 'Home\HomeController@contact');
-Route::get('about', 'Home\HomeController@about');
+Route::get('contact', 'Flash\FlashController@contact');
+Route::get('about', 'Flash\FlashController@about');
 
 Route::resource('crimibook', 'Crimibook\CrimibookController');
 

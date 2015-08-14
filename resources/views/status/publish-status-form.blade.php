@@ -1,4 +1,4 @@
-
+    <div class="status-post>">
           {!! Form::open(array('url' => 'status', 'files' => true)) !!}
                   <div class="form-group">
                       {!! Form::file('image_path', array('multiple' => 1, 'class' => 'btn btn-success', 'id' => 'imgInp') ) !!}
@@ -20,6 +20,7 @@
 
 
           {!!Form::close()!!}
+    </div>
 
 
 
