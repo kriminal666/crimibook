@@ -29,17 +29,17 @@
                 <li><a href="{{url('contact')}}">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                @if (Auth::User())
+                @if ($currentUser)
                     <li class="dropdown">
 
                         <a href="#" class="dropdown-toggle user-dropdown" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img class="nav-gravatar media-object avatar" src="{{ Auth::User()->present()->gravatar }}" alt="{{ Auth::User()->name }}">
-                            {{ Auth::User()->name }}
+                            <img class="nav-gravatar media-object avatar" src="{{ $currentUser->present()->gravatar }}" alt="{{ $currentUser->name }}">
+                            {{ $currentUser->name }}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
 
-                            <li><a href="{{route('profile_path',Auth::user()->name) }}">Your profile</a></li>
+                            <li><a href="{{route('profile_path',$currentUser->name) }}">Your profile</a></li>
                             <li><a href="{{url('users')}}">List users</a></li>
                             <li><a href="#">Something else here</a></li>
                             <li role="separator" class="divider"></li>

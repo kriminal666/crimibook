@@ -13,6 +13,11 @@ class Status extends Model
 
     use PresentableTrait;
 
+    /**
+     * This presenter
+     *
+     * @var string
+     */
     protected $presenter = 'Crimibook\Presenters\StatusPresenter';
     /**
      * The database table used by the model.
@@ -28,6 +33,12 @@ class Status extends Model
      */
     protected $fillable = ['user_id', 'body', 'image'];
 
+    /**
+     * Get status from form
+     *
+     * @param Request $request
+     * @return static
+     */
     public static function fromForm(Request $request)
     {
         $status = new static;
@@ -40,6 +51,12 @@ class Status extends Model
         return $status;
     }
 
+    /**
+     * Handle status image
+     *
+     * @param UploadedFile $file
+     * @return string
+     */
     public static function photo(UploadedFile $file)
     {
 
@@ -61,6 +78,17 @@ class Status extends Model
     public function users()
     {
         return $this->belongsTo('Crimibook\User', 'user_id');
+    }
+
+
+    /**
+     * This has many comments
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('Crimibook\Models\Comment', 'status_id');
     }
 
 

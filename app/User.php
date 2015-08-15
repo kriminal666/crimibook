@@ -117,4 +117,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
 
+    /**
+     * This has many comments
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('Crimibook\Models\Comment', 'user_id');
+    }
+
+
 }

@@ -40,6 +40,18 @@ Route::get('@{name}', [
  */
 Route::resource('follows', 'Follows\FollowsController');
 
+/**
+ * Comment status
+ */
 
+Route::post('status/{id}/comment', [
+    'as' => 'comment_path',
+    'uses' =>'Comments\CommentController@store'
+]);
+
+Route::delete('comment/{id}', [
+    'as' => 'comment_delete',
+    'uses' => 'Comments\CommentController@destroy'
+]);
 
 

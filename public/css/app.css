@@ -6059,9 +6059,26 @@ li.dropdown li a {
 
 .status-media {
   border: 1px solid #e3e3e3;
+  border-bottom: none;
   background: white;
-  padding: 1em;
-  margin-bottom: 2em; }
+  padding: 1em; }
+
+.comments__create-form textarea {
+  border: 1px solid #e3e3e3;
+  border-top: none;
+  border-radius: 0; }
+
+.comments {
+  margin-bottom: 5em; }
+
+.comments__comment {
+  background: #e6e6e6;
+  margin-top: 0;
+  border: 1px solid #d9d9d9;
+  border-bottom: 1px solid #e3e3e3; }
+
+.since {
+  font-size: 10px; }
 
 body {
   padding-top: 70px;

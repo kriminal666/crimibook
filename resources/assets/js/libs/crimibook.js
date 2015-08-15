@@ -31,3 +31,15 @@ $( ".img" ).click(function() {
 
 
 });
+
+$('.comments__create-form').on('keydown', function(e){
+
+    //Check if enter was pressed
+    if(e.keyCode == 13) {
+
+        e.preventDefault();
+        $(this).submit();
+
+    }
+
+});

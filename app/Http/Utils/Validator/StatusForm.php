@@ -13,7 +13,7 @@ class StatusForm extends FormValidator
 {
 
     /**
-     * Validation rules for User form
+     * Validation rules for status form
      *
      * @var array
      */

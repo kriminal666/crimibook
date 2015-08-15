@@ -108,13 +108,13 @@ class StatusController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove status from storage.
      *
      * @param  int $id
      * @return Response
      */
     public function destroy($id)
     {
-        //
+        return 'trying to remove status: '.$id;
     }
 }

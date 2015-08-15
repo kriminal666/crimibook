@@ -38,14 +38,14 @@
                 </div>
                 <div class="col-md-6">
 
-                    @unless($user->is(Auth::user()))
+                    @unless($user->is($currentUser))
 
                         @include('partials.follow-form')
 
                     @endif
 
 
-                    @if($user->is(Auth::User()))
+                    @if($user->is($currentUser))
                         @include('status.publish-status-form')
                     @endif
                     @if($user->statuses->count())

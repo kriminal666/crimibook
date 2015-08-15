@@ -1,5 +1,5 @@
 
-@if($user->isFollowedBy(Auth::User()))
+@if($user->isFollowedBy($currentUser))
 
     {!! Form::open(array('url' => ['follows', $user->id], 'method' => 'delete')) !!}
 
