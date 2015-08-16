@@ -4,10 +4,11 @@
     </div>
     <div class="media-body status-media-body">
         <h4 class="media-heading status-media-heading">{{$status->users->name}}</h4>
+
         <p class="text-muted status-media-time">{{$status->present()->timeSincePublished}}</p>
 
         @if($status->image_path)
-            <img class="img"  src="{{$status->image_path}} "  width = 200 height = 200/>
+            <img class="img" src="{{$status->image_path}} " width=200 height=200/>
             <hr>
         @endif
 
@@ -17,7 +18,8 @@
 
             <div class="comment_delete pull-right">
 
-                {!! Form::open(array('route' => ['delete_status'], 'method' => 'get', 'class' => 'status__delete-form'))!!}
+                {!! Form::open(array('route' => ['delete_status'], 'method' => 'get', 'class' =>
+                'status__delete-form'))!!}
                 {!! Form::hidden('status_id', $status->id) !!}
                 {!! Form::token() !!}
                 {!! Form::submit('X') !!}
@@ -46,15 +48,15 @@
 
 @unless($status->comments->isEmpty())
 
-<div class="comments">
+    <div class="comments">
 
-    @foreach($status->comments as $comment)
+        @foreach($status->comments as $comment)
 
-        @include('partials.comments')
+            @include('partials.comments')
 
-    @endforeach
+        @endforeach
 
-</div>
+    </div>
 
 
 

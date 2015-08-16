@@ -30,9 +30,14 @@ class FlashController extends Controller
         return back();
     }
 
+    /**
+     * Delete status ask
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function deleteStatus()
     {
-        flash()->delete('Are you sure?', 'Delete this status?','warning');
+        flash()->delete('Are you sure?', 'Delete this status?', 'warning');
         return back();
     }
 }

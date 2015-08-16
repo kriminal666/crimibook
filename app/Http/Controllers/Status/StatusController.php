@@ -123,14 +123,11 @@ class StatusController extends Controller
 
         ];
 
-        if (!$this->statusRepo->deleteStatus($input))
-        {
-            return Response::make(['',404,'']);
+        if (!$this->statusRepo->deleteStatus($input)) {
+            return Response::make(['', 404, '']);
         }
 
-        return Response::make(['',200,'']);
-
-
+        return Response::make(['', 200, '']);
 
 
     }

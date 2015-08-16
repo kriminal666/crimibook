@@ -2,28 +2,29 @@
 
 @section('content')
 
-        <h1 class="page-header">All Users</h1>
+    <h1 class="page-header">All Users</h1>
 
 
-        @foreach($users->chunk(4) as $userSet)
+    @foreach($users->chunk(4) as $userSet)
 
-            <div class="row users">
+        <div class="row users">
 
-                @foreach($userSet as $user)
+            @foreach($userSet as $user)
 
-                    <div class="col-md-3 user-block">
-                        <a href="{{route('profile_path',$user->name) }}">
+                <div class="col-md-3 user-block">
+                    <a href="{{route('profile_path',$user->name) }}">
                         @include('partials.avatar', ['size' => 70])
-                        </a>
+                    </a>
 
-                        <h4 class ="user-block-username">
-                            {!! link_to_route('profile_path',$title = $user->name, $parameters = array($user->name, $user->name)) !!}
+                    <h4 class="user-block-username">
+                        {!! link_to_route('profile_path',$title = $user->name, $parameters = array($user->name,
+                        $user->name)) !!}
 
-                        </h4>
+                    </h4>
 
-                    </div>
+                </div>
 
-                @endforeach
+            @endforeach
         </div>
     @endforeach
 

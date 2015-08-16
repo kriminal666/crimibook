@@ -5,25 +5,27 @@
     </div>
 
     <div class="media-body">
-            <h4 class="media-heading">{{ $comment->owner->name }}</h4>
-            <p class="text-muted since">{{$comment->present()->timeSincePublished}}</p>
+        <h4 class="media-heading">{{ $comment->owner->name }}</h4>
+
+        <p class="text-muted since">{{$comment->present()->timeSincePublished}}</p>
 
 
         {{ $comment->body }}
 
 
-            @if($comment->owner->is($currentUser))
+        @if($comment->owner->is($currentUser))
 
             <div class="comment_delete pull-right">
 
-                {!! Form::open(array('route' => ['comment_delete', $comment->id], 'method' => 'delete', 'class' => 'comments__delete-form'))!!}
+                {!! Form::open(array('route' => ['comment_delete', $comment->id], 'method' => 'delete', 'class' =>
+                'comments__delete-form'))!!}
 
                 {!! Form::submit('X') !!}
 
                 {!! Form::close() !!}
 
             </div>
-            @endif
+        @endif
 
 
     </div>

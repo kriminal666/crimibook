@@ -14,7 +14,8 @@
 <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -32,8 +33,10 @@
                 @if ($currentUser)
                     <li class="dropdown">
 
-                        <a href="#" class="dropdown-toggle user-dropdown" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img class="nav-gravatar media-object avatar" src="{{ $currentUser->present()->gravatar }}" alt="{{ $currentUser->name }}">
+                        <a href="#" class="dropdown-toggle user-dropdown" data-toggle="dropdown" role="button"
+                           aria-expanded="false">
+                            <img class="nav-gravatar media-object avatar" src="{{ $currentUser->present()->gravatar }}"
+                                 alt="{{ $currentUser->name }}">
                             {{ $currentUser->name }}
                             <span class="caret"></span>
                         </a>
@@ -52,7 +55,8 @@
                 @endif
             </ul>
 
-        </div><!--/.nav-collapse -->
+        </div>
+        <!--/.nav-collapse -->
 
     </div>
 </nav>
@@ -65,7 +69,6 @@
 <script src="/js/libs.js"></script>
 <script src="/js/crimibook.js"></script>
 @include('flash')
-
 
 
 </body>

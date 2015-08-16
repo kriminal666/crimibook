@@ -60,25 +60,26 @@ class StatusRepository
      */
     public function deleteComment($id)
     {
-
         Comment::findOrFail($id)->delete();
-
     }
 
+    /**
+     * Delete image, comments and finally status
+     *
+     * @param $input
+     * @return bool
+     */
     public function deleteStatus($input)
     {
         $status = Status::findOrFail($input['status_id']);
 
-
-        if ($status->image_path != '')
-        {
-            if( !$this->deleteStatusPhoto($status->image_path))
-            {
+        if ($status->image_path != '') {
+            if (!$this->deleteStatusPhoto($status->image_path)) {
                 return false;
             }
         }
 
-        //Delete all comments of the status
+        //Delete status comments
         $status->comments()->delete();
 
         //Finally delete status
@@ -88,15 +89,19 @@ class StatusRepository
     }
 
 
+    /**
+     * Delete image from status
+     *
+     * @param $path
+     * @return bool
+     */
     public function deleteStatusPhoto($path)
     {
-
 
         $path = preg_replace('/\//', '', $path, 1);
 
         if (!File::delete($path)) {
             return false;
-
         }
         return true;
     }
