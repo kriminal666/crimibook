@@ -2,9 +2,9 @@
     <div class="pull-left">
         @include('partials.avatar', ['user' => $status->users])
     </div>
-    <div class="media-body">
-        <h4 class="media-heading">{{$status->users->name}}</h4>
-        <p class="text-muted since">{{$status->present()->timeSincePublished}}</p>
+    <div class="media-body status-media-body">
+        <h4 class="media-heading status-media-heading">{{$status->users->name}}</h4>
+        <p class="text-muted status-media-time">{{$status->present()->timeSincePublished}}</p>
 
         @if($status->image_path)
             <img class="img"  src="{{$status->image_path}} "  width = 200 height = 200/>
@@ -17,10 +17,10 @@
 
             <div class="comment_delete pull-right">
 
-                {!! Form::open(array('url' => ['status', $status->id], 'method' => 'delete', 'class' => 'status__delete-form'))!!}
-
+                {!! Form::open(array('route' => ['delete_status'], 'method' => 'get', 'class' => 'status__delete-form'))!!}
+                {!! Form::hidden('status_id', $status->id) !!}
+                {!! Form::token() !!}
                 {!! Form::submit('X') !!}
-
                 {!! Form::close() !!}
 
             </div>
@@ -29,7 +29,7 @@
     </div>
 </article>
 
-@if ($status->users->isFollowedBy($currentUser))
+@if ($status->users->isFollowedBy($currentUser) || $status->users->is($currentUser))
 
     {!! Form::open(array('route' => ['comment_path', $status->id], 'method' => 'post', 'class' => 'comments__create-form'))!!}
 

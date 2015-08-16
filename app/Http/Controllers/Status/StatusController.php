@@ -10,6 +10,7 @@ use Crimibook\Models\Status;
 use Crimibook\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 
 
 class StatusController extends Controller
@@ -115,6 +116,22 @@ class StatusController extends Controller
      */
     public function destroy($id)
     {
-        return 'trying to remove status: '.$id;
+        $input = [
+
+            'status_id' => $id,
+            'user_id' => Auth::id(),
+
+        ];
+
+        if (!$this->statusRepo->deleteStatus($input))
+        {
+            return Response::make(['',404,'']);
+        }
+
+        return Response::make(['',200,'']);
+
+
+
+
     }
 }

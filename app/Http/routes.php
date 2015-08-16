@@ -23,6 +23,12 @@ Route::get('register/confirm/{token}', 'Auth\AuthController@confirmEmail');
 
 Route::get('contact', 'Flash\FlashController@contact');
 Route::get('about', 'Flash\FlashController@about');
+Route::get('delete', [
+
+    'as' => 'delete_status',
+    'uses' => 'Flash\FlashController@deleteStatus'
+]);
+
 
 Route::resource('crimibook', 'Crimibook\CrimibookController');
 

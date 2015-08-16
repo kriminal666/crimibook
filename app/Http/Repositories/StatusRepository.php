@@ -12,6 +12,7 @@ namespace Crimibook\Http\Repositories;
 use Crimibook\Models\Comment;
 use Crimibook\Models\Status;
 use Crimibook\User;
+use Illuminate\Support\Facades\File;
 
 class StatusRepository
 {
@@ -62,6 +63,42 @@ class StatusRepository
 
         Comment::findOrFail($id)->delete();
 
+    }
+
+    public function deleteStatus($input)
+    {
+        $status = Status::findOrFail($input['status_id']);
+
+
+        if ($status->image_path != '')
+        {
+            if( !$this->deleteStatusPhoto($status->image_path))
+            {
+                return false;
+            }
+        }
+
+        //Delete all comments of the status
+        $status->comments()->delete();
+
+        //Finally delete status
+        $status->delete();
+
+        return true;
+    }
+
+
+    public function deleteStatusPhoto($path)
+    {
+
+
+        $path = preg_replace('/\//', '', $path, 1);
+
+        if (!File::delete($path)) {
+            return false;
+
+        }
+        return true;
     }
 
 }

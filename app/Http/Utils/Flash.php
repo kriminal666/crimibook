@@ -76,5 +76,18 @@ class Flash
 
     }
 
+    /**
+     * @param $title
+     * @param $message
+     * @param string $level
+     * @return mixed
+     */
+    public function delete($title, $message, $level = 'warning')
+    {
+
+        return $this->create($title, $message, $level, 'flash_message_delete');
+
+    }
+
 
 }

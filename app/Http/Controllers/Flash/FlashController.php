@@ -29,4 +29,10 @@ class FlashController extends Controller
         flash()->overlay('About', 'Crimibook, done with Laravel 5.1 framework', 'info');
         return back();
     }
+
+    public function deleteStatus()
+    {
+        flash()->delete('Are you sure?', 'Delete this status?','warning');
+        return back();
+    }
 }

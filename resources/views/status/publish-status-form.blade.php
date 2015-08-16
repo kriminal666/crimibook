@@ -14,7 +14,7 @@
                         <img id="blah" src="#" WIDTH=100 HEIGHT=100 alt="" />
                     </div>
 
-                  <div class="form-group">
+                  <div class="form-group status-post-submit">
                       <button type="submit"  class="btn btn-primary">Post status</button>
                   </div>
 
