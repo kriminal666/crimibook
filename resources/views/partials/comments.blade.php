@@ -20,7 +20,7 @@
                 {!! Form::open(array('route' => ['comment_delete', $comment->id], 'method' => 'delete', 'class' =>
                 'comments__delete-form'))!!}
 
-                {!! Form::submit('X') !!}
+                {!! Form::submit('&#10007;', array('class' => 'btn-delete')) !!}
 
                 {!! Form::close() !!}
 

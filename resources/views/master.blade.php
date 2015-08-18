@@ -44,7 +44,7 @@
 
                             <li><a href="{{route('profile_path',$currentUser->name) }}">Your profile</a></li>
                             <li><a href="{{url('users')}}">List users</a></li>
-                            <li><a href="#">Something else here</a></li>
+                            <li><a href="{{url('albums/create')}}">New album</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a target="_blank" href="https://es.gravatar.com">Create gravatar</a></li>
                             <li role="separator" class="divider"></li>

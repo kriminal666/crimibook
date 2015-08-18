@@ -60,4 +60,6 @@ Route::delete('comment/{id}', [
     'uses' => 'Comments\CommentController@destroy'
 ]);
 
+Route::resource('albums' , 'Album\AlbumController');
+
 

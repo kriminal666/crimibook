@@ -16,13 +16,13 @@
 
         @if($status->users->is($currentUser))
 
-            <div class="comment_delete pull-right">
+            <div class="comment_delete btn-delete pull-right">
 
                 {!! Form::open(array('route' => ['delete_status'], 'method' => 'get', 'class' =>
                 'status__delete-form'))!!}
                 {!! Form::hidden('status_id', $status->id) !!}
                 {!! Form::token() !!}
-                {!! Form::submit('X') !!}
+                {!! Form::submit('&#10007;') !!}
                 {!! Form::close() !!}
 
             </div>
