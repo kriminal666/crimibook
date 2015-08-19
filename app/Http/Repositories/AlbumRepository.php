@@ -34,6 +34,25 @@ class AlbumRepository
     }
 
 
+
+    /**
+     * Get feed for user
+     *
+     * @param User $user
+     * @return mixed
+     */
+    public function getAlbumsForUser(User $user)
+    {
+        $userIds = $user->albums()->lists('user_id')->all();
+
+        $userIds[] = $user->id;
+
+        return Album::with('comments')->whereIn('user_id', $userIds)->latest()->get();
+
+    }
+
+
+
     /**
      * Save the new album
      *

@@ -47,9 +47,19 @@ class Album extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function users()
+    public function owner()
     {
         return $this->belongsTo('Crimibook\User', 'user_id');
+    }
+
+    /**
+     * This is shared with many users
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function sharedWith()
+    {
+        return $this->belongsToMany('Crimibook\User');
     }
 
     /**

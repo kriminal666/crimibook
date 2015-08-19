@@ -62,4 +62,9 @@ Route::delete('comment/{id}', [
 
 Route::resource('albums' , 'Album\AlbumController');
 
+Route::post('album/share', [
+    'as' =>'albums_share',
+    'uses' => 'Album\AlbumController@shareWith'
+]);
+
 

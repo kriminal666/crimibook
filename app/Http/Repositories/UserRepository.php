@@ -79,4 +79,15 @@ class UserRepository
 
     }
 
+    /**
+     * Get all albums (mines and shared with me)
+     *
+     * @param User $user
+     * @return mixed
+     */
+    public function myAlbumsAndSharedWithMe(User $user)
+    {
+        return $user->albums->merge($user->albumsSharedWithMe);
+    }
+
 }

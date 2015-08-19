@@ -5,6 +5,7 @@ namespace Crimibook\Http\Controllers\Crimibook;
 use Crimibook\Http\Controllers\Controller;
 use Crimibook\Http\Repositories\StatusRepository;
 use Crimibook\Http\Requests;
+use Crimibook\Models\Album;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +27,7 @@ class CrimibookController extends Controller
      */
     public function index()
     {
+
         $statuses = $this->statusRepo->getFeedForUser(Auth::user());
 
         return View('crimibook.home_page', array('statuses' => $statuses));
