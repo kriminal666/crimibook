@@ -6,6 +6,7 @@
     <title>Crimibook</title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/libs.css">
+    <link rel="stylesheet" href="/css/bootstrap-multiselect.css">
 
 </head>
 <body>
@@ -70,6 +71,6 @@
 <script src="/js/crimibook.js"></script>
 @include('flash')
 
-
+@yield('specific_scripts')
 </body>
 </html>

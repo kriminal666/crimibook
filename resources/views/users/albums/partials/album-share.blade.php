@@ -1,17 +1,22 @@
-{!! Form::open(array('route' =>'albums_share')) !!}
 
-    <select class="form-control" name="browsers" multiple>
+    <div class="col-md-6 col-md-offset-9">
+        {!! Form::open(array('route' =>'albums_share')) !!}
 
-        @foreach($currentUser->followers as $follower)
-            <option value="{{$follower->id}}">{{$follower->name}}</option>
+                <div class="form-group">
 
-        @endforeach
-    </select>
+                        <select id="share-album-multiselect" class="form-control" name="shareWith[]" multiple="multiple">
 
-    <div class="form-group">
-        <div class="col-xs-5 col-xs-offset-3">
-            <button type="submit" class="btn btn-default">Share</button>
-        </div>
-    </div
+                            @foreach($currentUser->followers as $follower)
+                                <option value="{{$follower->id}}">{{$follower->name}}</option>
 
- {!!Form::close()!!}
+                            @endforeach
+                        </select>
+
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Share</button>
+                </div>
+
+        {!!Form::close()!!}
+    </div>

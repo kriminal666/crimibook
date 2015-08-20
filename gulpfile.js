@@ -29,9 +29,18 @@ elixir(function(mix) {
             'libs/crimibook.js'
         ], './public/js/crimibook.js')
 
+        .scripts([
+            'libs/bootstrap-multiselect.js'
+        ], './public/js/bootstrap-multiselect.js')
+
         .styles([
 
             'libs/sweetalert.css'
-        ], './public/css/libs.css');
+        ], './public/css/libs.css')
+
+        .styles([
+
+            'libs/bootstrap-multiselect.css'
+        ], './public/css/bootstrap-multiselect.css');
 
 });

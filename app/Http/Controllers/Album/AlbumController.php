@@ -95,6 +95,11 @@ class AlbumController extends Controller
         return View('users.albums.album-show', array('album' => $album));
     }
 
+    public function shareWith(Request $request)
+    {
+        return $request->all();
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
