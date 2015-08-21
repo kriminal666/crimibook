@@ -4,6 +4,7 @@ namespace Crimibook\Http\Controllers\Album;
 
 use Crimibook\Http\Repositories\AlbumRepository;
 use Crimibook\Http\Utils\Validator\AlbumForm;
+use Crimibook\Http\Utils\Validator\AlbumShareForm;
 use Crimibook\Models\Album;
 use Illuminate\Http\Request;
 
@@ -95,9 +96,24 @@ class AlbumController extends Controller
         return View('users.albums.album-show', array('album' => $album));
     }
 
-    public function shareWith(Request $request)
+    /**
+     * Share album with followers
+     *
+     * @param AlbumShareForm $albumShareForm
+     * @param AlbumShareForm|Request $request
+     * @return array
+     * @throws \Crimibook\Http\Utils\Validator\FormValidationException
+     */
+    public function shareWith(AlbumShareForm $albumShareForm, Request $request)
     {
-        return $request->all();
+
+        $albumShareForm->validate($request->only('shareWith'));
+
+        $album = $this->albumRepo->shareAlbumWith($request->except('_token'));
+
+        flash()->success('Album shared', 'Album ' . $album->name . ' shared with your friends.');
+
+        return back();
     }
 
     /**

@@ -2,12 +2,17 @@
 
 @section('content')
     <div class="row">
-    <h1>Show album</h1>
-    {{$album->name}}
+        <div class="col-md-6 col-md-offset-3">
+            <blockquote>
+            <h1>Album {{$album->name}}</h1>
+            {{$album->description}}
+            </blockquote>
+        </div>
 
-    @if($album->owner == $currentUser)
-        @include('users.albums.partials.album-share')
-    @endif
+
+        @if($album->owner == $currentUser && ! $currentUser->followers->isEmpty() && !($album->sharedWith->count() == $currentUser->followers->count()))
+            @include('users.albums.partials.album-share')
+        @endif
 
     </div>
 

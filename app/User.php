@@ -137,10 +137,27 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('Crimibook\Models\Album', 'user_id');
     }
 
+    /**
+     * Albums of other users shared with me
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function albumsSharedWithMe()
     {
         return $this->belongsToMany('Crimibook\Models\Album');
     }
+
+    public function sharedAlbumsWithMe(User $otherUser)
+    {
+        $OtherUserAlbums = $otherUser->albums()->get();
+        $albumsSharedWithMe = $this->albumsSharedWithMe()->get();
+
+        return $OtherUserAlbums->intersect($albumsSharedWithMe);
+    }
+
+
+
+
 
 
 }

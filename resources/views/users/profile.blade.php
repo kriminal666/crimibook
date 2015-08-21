@@ -4,7 +4,7 @@
 
     <div class="row">
 
-        <div class="col-md-4 ">
+        <div class="col-md-4">
             <div class="media">
                 <div class="pull-left">
 
@@ -27,8 +27,21 @@
                     @foreach($user->followers as $follower)
 
                         @include('partials.avatar',['size' => 30, 'user' => $follower])
+                        <p class="text-muted">{{ $follower->name }}</p>
 
                     @endforeach
+
+                    @unless($currentUser->sharedAlbumsWithMe($user)->isEmpty())
+
+                        <h4>{{$user->name}}'s albums</h4>
+                        <ul class="text-muted">
+                            @foreach($currentUser->sharedAlbumsWithMe($user) as $album)
+                                <li><a href="{{route('albums.show', $album->id)}}">{{$album->name}}</a></li>
+                            @endforeach
+
+                        </ul>
+
+                    @endunless
 
                 </div>
             </div>
@@ -58,6 +71,7 @@
                 @endif
 
         </div>
+
 
     </div>
 

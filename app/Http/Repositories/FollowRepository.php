@@ -18,13 +18,20 @@ class FollowRepository
     protected $userRepo;
 
     /**
+     * @var AlbumRepository
+     */
+    protected $albumRepo;
+
+    /**
      * Constructor
      *
      * @param UserRepository $userRepo
+     * @param AlbumRepository $albumRepo
      */
-    function __construct(UserRepository $userRepo)
+    function __construct(UserRepository $userRepo, AlbumRepository $albumRepo)
     {
         $this->userRepo = $userRepo;
+        $this->albumRepo = $albumRepo;
     }
 
 
@@ -50,6 +57,10 @@ class FollowRepository
     {
 
         $user = $this->userRepo->findById($input['user_id']);
+
+        $userToUnFollow = $this->userRepo->findById($input['userIdToUnFollow']);
+
+        $this->albumRepo->unShareAllAlbums($user, $userToUnFollow);
 
         return $this->userRepo->unFollow($input['userIdToUnFollow'], $user);
 

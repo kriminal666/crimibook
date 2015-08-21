@@ -10,8 +10,11 @@ namespace Crimibook\Http\Repositories;
 
 
 use Crimibook\Models\Album;
+use Crimibook\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+
 
 
 class AlbumRepository
@@ -47,11 +50,9 @@ class AlbumRepository
 
         $userIds[] = $user->id;
 
-        return Album::with('comments')->whereIn('user_id', $userIds)->latest()->get();
+        return Album::with('photos')->whereIn('user_id', $userIds)->latest()->get();
 
     }
-
-
 
     /**
      * Save the new album
@@ -95,6 +96,35 @@ class AlbumRepository
             return false;
         }
         return true;
+
+    }
+
+    /**
+     * Attach share album to pivot
+     *
+     * @param Request $input
+     * @return mixed
+     */
+    public function shareAlbumWith($input)
+    {
+        $album = Album::findOrFail($input['album_id']);
+
+        $album->sharedWith()->attach(array_values($input['shareWith']));
+
+        return $album;
+    }
+
+    /**
+     * When unFollowing unShare all albums
+     *
+     * @param User $user
+     * @param User $userSharingWithMe
+     */
+    public function unShareAllAlbums(User $user, User $userSharingWithMe)
+    {
+        $albumsToUnShare = $user->sharedAlbumsWithMe($userSharingWithMe)->lists('id')->all();
+
+        $user->albumsSharedWithMe()->detach($albumsToUnShare);
 
     }
 }
