@@ -6,6 +6,7 @@ namespace Crimibook;
 use Caffeinated\Presenter\Traits\PresentableTrait;
 use Crimibook\Models\Status;
 use Crimibook\Traits\FollowableTrait;
+use Crimibook\Traits\ShareableAlbumsTrait;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -18,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword, PresentableTrait, FollowableTrait;
+    use Authenticatable, CanResetPassword, PresentableTrait, FollowableTrait, ShareableAlbumsTrait;
 
     protected $presenter = 'Crimibook\Presenters\UserPresenter';
 
@@ -127,33 +128,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('Crimibook\Models\Comment', 'user_id');
     }
 
-    /**
-     * This has many albums
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function albums()
-    {
-        return $this->hasMany('Crimibook\Models\Album', 'user_id');
-    }
 
-    /**
-     * Albums of other users shared with me
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function albumsSharedWithMe()
-    {
-        return $this->belongsToMany('Crimibook\Models\Album');
-    }
-
-    public function sharedAlbumsWithMe(User $otherUser)
-    {
-        $OtherUserAlbums = $otherUser->albums()->get();
-        $albumsSharedWithMe = $this->albumsSharedWithMe()->get();
-
-        return $OtherUserAlbums->intersect($albumsSharedWithMe);
-    }
 
 
 

@@ -67,4 +67,6 @@ Route::post('album/share', [
     'uses' => 'Album\AlbumController@shareWith'
 ]);
 
+Route::post('{album}/photos', ['as' => 'store_photo_path', 'uses' =>'Photo\PhotoController@store']);
+
 

@@ -10,6 +10,7 @@ namespace Crimibook\Http\Repositories;
 
 
 use Crimibook\Models\Album;
+use Crimibook\Models\Photo;
 use Crimibook\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -126,5 +127,16 @@ class AlbumRepository
 
         $user->albumsSharedWithMe()->detach($albumsToUnShare);
 
+    }
+
+    /**
+     * Store photo in album
+     *
+     * @param Album $album
+     * @param Photo $photo
+     */
+    public function storePhotoInAlbum(Album $album, Photo $photo)
+    {
+        $album->photos()->save($photo);
     }
 }

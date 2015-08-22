@@ -3,6 +3,8 @@
 namespace Crimibook\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Photo extends Model
 {
@@ -31,5 +33,21 @@ class Photo extends Model
     public function albums()
     {
         return $this->belongsTo('Crimibook\Models\Album', 'album_id');
+    }
+
+
+    public static function fromForm(UploadedFile $file, $albumName)
+    {
+        $photo = new static;
+
+        $path =  'images/' . Auth::user()->name . '/albums/' . $albumName .'/';
+
+        $name = time() . $file->getClientOriginalName();
+
+        $photo->path = '/' . $path . $name;
+
+        $file->move($path, $name);
+
+        return $photo;
     }
 }

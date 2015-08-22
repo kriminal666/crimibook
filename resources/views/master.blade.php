@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/libs.css">
     <link rel="stylesheet" href="/css/bootstrap-multiselect.css">
+    <link rel="stylesheet" href="/css/dropzone.css">
+    <link rel="stylesheet" href="/blueimp/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="/blueimp/css/bootstrap-image-gallery.min.css">
+
 
 </head>
 <body>
@@ -64,13 +68,12 @@
 <div class="container">
     @yield('content')
 </div>
+@include('flash')
+@yield('footer')
 <script src="/js/jquery-2.1.4.min.js"></script>
 <script src="/js/bootstrap.js"></script>
-
 <script src="/js/libs.js"></script>
 <script src="/js/crimibook.js"></script>
-@include('flash')
-
 @yield('specific_scripts')
 </body>
 </html>

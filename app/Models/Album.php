@@ -38,6 +38,17 @@ class Album extends Model
         return $album;
     }
 
+    /**
+     * Add photo to the album
+     *
+     * @param Photo $photo
+     * @return Model
+     */
+    public function addPhoto(Photo $photo)
+    {
+        return $this->photos()->save($photo);
+    }
+
 
 
     //Relations
