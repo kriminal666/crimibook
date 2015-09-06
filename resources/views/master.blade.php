@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Crimibook</title>
-    <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/libs.css">
-    <link rel="stylesheet" href="/css/bootstrap-multiselect.css">
-    <link rel="stylesheet" href="/css/dropzone.css">
-    <link rel="stylesheet" href="/blueimp/css/blueimp-gallery.min.css">
-    <link rel="stylesheet" href="/blueimp/css/bootstrap-image-gallery.min.css">
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/libs.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/bootstrap-multiselect.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/dropzone.css')}}">
+    <link rel="stylesheet" href="{{asset('/blueimp/css/blueimp-gallery.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/blueimp/css/bootstrap-image-gallery.min.css')}}">
 
 
 </head>
@@ -56,6 +56,9 @@
                             <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
                         </ul>
                     </li>
+                @else
+
+
 
                 @endif
             </ul>
@@ -67,13 +70,21 @@
 </nav>
 <div class="container">
     @yield('content')
+    {!! Form::open(array('url' => ['lang', 'lang'], 'method' => 'post')) !!}
+    {!! Form::select('lang', array('en'=>'English','es'=>'Spanish', 'cat' => 'Catalán'))!!}
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Share</button>
+    </div>
+    {!! Form::close()!!}
 </div>
-@include('flash')
+
 @yield('footer')
-<script src="/js/jquery-2.1.4.min.js"></script>
-<script src="/js/bootstrap.js"></script>
-<script src="/js/libs.js"></script>
-<script src="/js/crimibook.js"></script>
+
+<script src="{{asset('/js/jquery-2.1.4.min.js')}}"></script>
+<script src="{{asset('/js/bootstrap.js')}}"></script>
+<script src="{{asset('/js/libs.js')}}"></script>
+<script src="{{asset('/js/crimibook.js')}}"></script>
+@include('flash')
 @yield('specific_scripts')
 </body>
 </html>

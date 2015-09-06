@@ -11,6 +11,11 @@
 |
 */
 
+//Language
+Route::post('lang/{lang}', 'Home\HomeController@changeLanguage');
+
+
+
 
 Route::get('/', 'Home\HomeController@index');
 

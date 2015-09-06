@@ -52,7 +52,7 @@
 
                 @include('partials.follow-form')
 
-                @endif
+            @endunless
 
 
                 @if($user->is($currentUser))

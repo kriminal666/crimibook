@@ -12,8 +12,16 @@ use Illuminate\Support\Facades\Auth;
 class CrimibookController extends Controller
 {
 
+    /**
+     * @var StatusRepository
+     */
     protected $statusRepo;
 
+    /**
+     * Constructor
+     *
+     * @param StatusRepository $statusRepo
+     */
     function __construct(StatusRepository $statusRepo)
     {
         $this->middleware('auth');

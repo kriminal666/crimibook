@@ -91,7 +91,7 @@
 
 @section('specific_scripts')
 
-    <script type="text/javascript" src="/js/bootstrap-multiselect.js"></script>
+    <script type="text/javascript" src="{{asset('/js/bootstrap-multiselect.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#share-album-multiselect').multiselect();
@@ -104,7 +104,7 @@
             paramName: "photo", // The name that will be used to transfer the file
             maxFilesize: 2, // MB
             acceptedFiles: ' .jpg, .jpeg, .png, .bmp,',
-            addRemoveLinks: true,
+            addRemoveLinks: true
 
 
         }
@@ -112,8 +112,8 @@
     </script>
 
 
-    <script src="/blueimp/js/jquery.blueimp-gallery.min.js"></script>
-    <script src="/blueimp/js/bootstrap-image-gallery.min.js"></script>
+    <script src="{{asset('/blueimp/js/jquery.blueimp-gallery.min.js')}}"></script>
+    <script src="{{asset('/blueimp/js/bootstrap-image-gallery.min.js')}}"></script>
 
 
 

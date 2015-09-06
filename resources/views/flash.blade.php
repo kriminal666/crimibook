@@ -1,3 +1,5 @@
+
+
 @if (session()->has('flash_message'))
 
     <script type="text/javascript">
