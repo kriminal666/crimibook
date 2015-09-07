@@ -37,7 +37,7 @@ class FlashController extends Controller
      */
     public function deleteStatus()
     {
-        flash()->delete('Are you sure?', 'Delete this status?', 'warning');
+        flash()->delete(trans('messages.delete_title'), trans('messages.delete_ask1'), 'warning');
         return back();
     }
 }

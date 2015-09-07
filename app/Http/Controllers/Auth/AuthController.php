@@ -93,7 +93,7 @@ class AuthController extends Controller
 
         $mailer->sendEmailConfirmationTo($user);
 
-        flash()->overlay('Check your Email', 'Please, now confirm your email address.', 'info');
+        flash()->overlay(trans('messages.check_email1'), trans('messages.check_email2'), 'info');
 
         return back();
     }
@@ -108,7 +108,7 @@ class AuthController extends Controller
     {
         User::whereToken($token)->firstOrFail()->confirmEmail();
 
-        flash()->overlay('Verified', 'Your email has been verified. Please login.', 'info');
+        flash()->overlay(trans('messages.verified_email1'), trans('messages.verified_email2'), 'info');
 
         return redirect('auth/login');
     }

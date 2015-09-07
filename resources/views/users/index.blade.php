@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="page-header">All Users</h1>
+    <h1 class="page-header">{{trans('messages.all_users')}}</h1>
 
 
     @foreach($users->chunk(4) as $userSet)

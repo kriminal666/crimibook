@@ -47,13 +47,13 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
 
-                            <li><a href="{{route('profile_path',$currentUser->name) }}">Your profile</a></li>
-                            <li><a href="{{url('users')}}">List users</a></li>
-                            <li><a href="{{url('albums/create')}}">New album</a></li>
+                            <li><a href="{{route('profile_path',$currentUser->name) }}">{{trans('messages.profile')}}</a></li>
+                            <li><a href="{{url('users')}}">{{trans('messages.list_users')}}</a></li>
+                            <li><a href="{{url('albums/create')}}">{{trans('messages.new_album')}}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a target="_blank" href="https://es.gravatar.com">Create gravatar</a></li>
+                            <li><a target="_blank" href="https://es.gravatar.com">{{trans('messages.create_gravatar')}}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+                            <li><a href="{{ url('/auth/logout') }}">{{trans('messages.logout')}}</a></li>
                         </ul>
                     </li>
                 @else

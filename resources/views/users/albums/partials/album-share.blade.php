@@ -1,6 +1,6 @@
 
     <div class="col-md-3 pull-right">
-        <h4>Share with friends:</h4>
+        <h4>{{trans('messages.share_album')}}</h4>
         {!! Form::open(array('route' =>'albums_share')) !!}
         {!! Form::hidden('album_id', $album->id) !!}
 

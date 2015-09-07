@@ -60,7 +60,7 @@ class FollowsController extends Controller
 
         $this->followRepo->followUser($input);
 
-        flash()->success('Following', 'You are following this user');
+        flash()->success(trans('messages.follow_title'), trans('messages.follow_body'));
 
         return back();
 
@@ -117,7 +117,7 @@ class FollowsController extends Controller
 
         $this->followRepo->unFollowUser($input);
 
-        flash()->success('unFollowing', 'You are unFollowing this user');
+        flash()->success(trans('messages.unfollow_title'), trans('messages.unfollow_body'));
 
         return back();
 

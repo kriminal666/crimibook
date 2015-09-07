@@ -53,6 +53,12 @@ class FollowRepository
 
     }
 
+    /**
+     * UnFollow user
+     *
+     * @param $input
+     * @return mixed
+     */
     public function unFollowUser($input)
     {
 

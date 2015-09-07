@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Las credenciales no coinciden con nuestra base de datos',
-    'throttle' => 'Demasiados intentos. Inténtalo de nuevo en :seconds segundos.',
+    'failed' => 'Les credencials no coincideixen amb la nostra base de dades.',
+    'throttle' => 'Massa intents. Intenta-ho de nou en :seconds segons.',
 
 ];

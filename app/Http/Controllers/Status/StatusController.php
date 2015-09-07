@@ -67,7 +67,7 @@ class StatusController extends Controller
 
         User::whoHas(Auth::user()->id)->publishStatus($status);
 
-        flash()->success('Status', 'Status created');
+        flash()->success(trans('messages.status_title'), trans('messages.status_body'));
 
         return back();
 

@@ -10,7 +10,7 @@
 
     <div class="form-group">
 
-        <button type="submit" class="btn btn-danger">Unfollow {{$user->name}}</button>
+        <button type="submit" class="btn btn-danger">{{trans('messages.unfollow_blade')}} {{$user->name}}</button>
 
     </div>
 
@@ -29,7 +29,7 @@
 
     <div class="form-group">
 
-        <button type="submit" class="btn btn-primary">Follow {{$user->name}}</button>
+        <button type="submit" class="btn btn-primary">{{trans('messages.follow_blade')}} {{$user->name}}</button>
 
     </div>
 

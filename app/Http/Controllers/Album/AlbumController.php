@@ -73,11 +73,11 @@ class AlbumController extends Controller
         $album = $this->albumRepo->saveAlbum($input);
 
         if (is_null($album)) {
-            flash()->error('Error', 'Error creating new album. Try to change the name');
+            flash()->error('Error', trans('messages.album_error'));
             return back();
         }
 
-        flash()->success('New album', 'New album ' . $album->name . ' created');
+        flash()->success(trans('messages.album_success1'), trans('messages.album_success1') . $album->name . trans('messages.album_success2'));
         return back();
 
 

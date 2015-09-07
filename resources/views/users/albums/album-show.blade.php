@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <blockquote>
-            <h1>Album {{$album->name}}</h1>
+            <h1>{{trans('messages.album')}} {{$album->name}}</h1>
             {{$album->description}}
             </blockquote>
         </div>

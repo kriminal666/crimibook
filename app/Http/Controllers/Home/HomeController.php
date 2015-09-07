@@ -19,6 +19,10 @@ class HomeController extends Controller
      */
     protected $redirectTo = '/home_page';
 
+    /**
+     *Constructor
+     *
+     */
     function __construct()
     {
         $this->middleware('guest');
@@ -26,6 +30,8 @@ class HomeController extends Controller
 
 
     /**
+     * Return index page
+     *
      * @return \Illuminate\View\View
      */
     public function index()
@@ -33,20 +39,22 @@ class HomeController extends Controller
         return view('pages.home');
     }
 
+    /**
+     * Change app language
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function changeLanguage()
     {
 
-
         $language = Input::get('lang'); //lang is name of form select field.
 
-            Session::put('language',$language);
-            App::setLocale($language);
+        Session::put('language', $language);
+        App::setLocale($language);
 
         return back();
 
     }
-
-
 
 
 }
