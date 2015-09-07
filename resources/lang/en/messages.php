@@ -5,5 +5,8 @@ return [
     'welcome' => 'Welcome to the Crimibook application. Sign up, create your own albums with your photos to share with other users, follow other users and share your status',
     'logIn' => 'Sign in',
     'signUp' => 'Sign up',
+    'about' => 'About',
+    'about_message' => 'Crimibook, developed with Laravel 5.1 framework.',
+    'contact' => 'Contact',
 
 ];

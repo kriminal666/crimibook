@@ -26,7 +26,7 @@ class FlashController extends Controller
      */
     public function about()
     {
-        flash()->overlay('About', 'Crimibook, done with Laravel 5.1 framework', 'info');
+        flash()->overlay(trans('messages.about'), trans('messages.about_message'),'info');
         return back();
     }
 
