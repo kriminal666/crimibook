@@ -35,7 +35,9 @@ return [
     'new_album' => 'Nou album',
     'create_gravatar' => 'Crear gravatar',
     'logout' => 'Sortir',
-    'all_users' => 'Tots els usuaris'
+    'all_users' => 'Tots els usuaris',
+    'postStatus_placeholder' => 'Què estàs pensant?'
+
 
 
 

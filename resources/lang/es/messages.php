@@ -35,5 +35,6 @@ return [
     'new_album' => 'Nuevo álbum',
     'create_gravatar' => 'Crear gravatar',
     'logout' => 'Salir',
-    'all_users' => 'Todos los usuarios'
+    'all_users' => 'Todos los usuarios',
+    'postStatus_placeholder' => '¿Qué estás pensando?'
 ];

@@ -35,7 +35,8 @@ return [
     'new_album' => 'New album',
     'create_gravatar' => 'Create gravatar',
     'logout' => 'Logout',
-    'all_users' => 'All users'
+    'all_users' => 'All users',
+    'postStatus_placeholder' => 'What are you thinking?'
 
 
 

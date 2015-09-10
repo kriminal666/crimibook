@@ -6,8 +6,7 @@
 
     </div>
     <div class="form-group">
-        {!!Form::textArea('body',old('status'),array('class' => 'form-control','rows' =>3, 'placeholder' => 'What are
-        you thinking?'))!!}
+        {!!Form::textArea('body',old('status'),array('class' => 'form-control','rows' =>3, 'placeholder' => trans('messages.postStatus_placeholder')))!!}
         {!! $errors->first('body','<span class="error">:message</span>') !!}
     </div>
 
