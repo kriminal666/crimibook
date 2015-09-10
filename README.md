@@ -13,5 +13,5 @@ Get de app and use non test key to be able to send:
 ## Sleeping Owl
 Crimibook uses [Sleeping Owl](https://github.com/sleeping-owl/admin/tree/development) with [AdminLTe](https://github.com/sleeping-owl/admin-lte-template) template.
 
-Check [](http://sleeping-owl.github.io/v3/en/Introduction.html)
+Check (http://sleeping-owl.github.io/v3/en/Introduction.html)
 
