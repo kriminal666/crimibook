@@ -9,7 +9,9 @@
         "laravel/framework": "5.1.*",
         "guzzlehttp/guzzle": "^6.0",
         "laravelcollective/html": "5.1.*",
-        "caffeinated/presenter": "~2.0"
+        "caffeinated/presenter": "~2.0",
+        "sleeping-owl/admin": "dev-development",
+        "sleeping-owl/admin-lte-template": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

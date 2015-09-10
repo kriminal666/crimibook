@@ -137,6 +137,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        SleepingOwl\Admin\AdminServiceProvider::class,
+        SleepingOwl\AdminLteTemplate\AdminLteTemplateServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -192,8 +194,17 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-        'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
+        'Form'      => Collective\Html\FormFacade::class,
+        'Html'      => Collective\Html\HtmlFacade::class,
+        'Admin'         => SleepingOwl\Admin\Admin::class,
+        'AdminAuth'     => SleepingOwl\AdminAuth\Facades\AdminAuth::class,
+        'Column'        => SleepingOwl\Admin\Columns\Column::class,
+        'ColumnFilter'  => SleepingOwl\Admin\ColumnFilters\ColumnFilter::class,
+        'Filter'        => SleepingOwl\Admin\Filter\Filter::class,
+        'AdminDisplay'  => SleepingOwl\Admin\Display\AdminDisplay::class,
+        'AdminForm'     => SleepingOwl\Admin\Form\AdminForm::class,
+        'AdminTemplate' => SleepingOwl\Admin\Templates\Facade\AdminTemplate::class,
+        'FormItem'      => SleepingOwl\Admin\FormItems\FormItem::class,
 
     ],
 
