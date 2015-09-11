@@ -31,7 +31,7 @@ class Status extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'body', 'image'];
+    protected $fillable = ['user_id', 'body', 'image_path'];
 
     /**
      * Get status from form

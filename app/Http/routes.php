@@ -10,6 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+get('follow', function(){
+    return \Crimibook\Models\Follow::with('users')->get();
+});
 
 //Language
 Route::post('lang/{lang}', 'Home\HomeController@changeLanguage');

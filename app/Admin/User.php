@@ -7,7 +7,7 @@
 
 Admin::model('Crimibook\User')->title('Users')->display(function ()
 {
-	$display = AdminDisplay::table();
+	$display = AdminDisplay::datatables();
 	$display->columns([
 		Column::string('name')->label('Name'),
 		Column::string('email')->label('Email'),
