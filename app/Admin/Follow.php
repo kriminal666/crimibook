@@ -20,7 +20,7 @@ Admin::model('Crimibook\Models\Follow')->title('Users follows')->display(functio
     return $display;
 })->createAndEdit(function ()
 {
- 
+
     $form = AdminForm::form();
     $form->items([
         FormItem::select('follower_id', 'Follower Name')->model('Crimibook\User')->display('name')->required(),
