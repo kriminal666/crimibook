@@ -36,5 +36,7 @@ return [
     'create_gravatar' => 'Crear gravatar',
     'logout' => 'Salir',
     'all_users' => 'Todos los usuarios',
-    'postStatus_placeholder' => '¿Qué estás pensando?'
+    'postStatus_placeholder' => '¿Qué estás pensando?',
+    'inLine' =>'Conectad@',
+    'offLine' =>'Desconectad@'
 ];

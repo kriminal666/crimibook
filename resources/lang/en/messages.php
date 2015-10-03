@@ -36,7 +36,9 @@ return [
     'create_gravatar' => 'Create gravatar',
     'logout' => 'Logout',
     'all_users' => 'All users',
-    'postStatus_placeholder' => 'What are you thinking?'
+    'postStatus_placeholder' => 'What are you thinking?',
+    'inLine' =>'Connected',
+    'offLine' =>'Disconnected'
 
 
 

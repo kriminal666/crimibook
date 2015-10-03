@@ -14,6 +14,11 @@
                 <div class="media-body">
 
                     <h1 class="media-heading">{{$user->name}}</h1>
+                    @if($user->inLine)
+                        <p><img src="{{asset('/icons/online_20.jpeg')}}">{{trans('messages.inLine')}}</p>
+                    @else
+                        <p><img src="{{asset('/icons/offline_20.jpeg')}}">{{trans('messages.offLine')}}</p>
+                    @endif
 
                     <ul class="list-inline text-muted">
 
@@ -22,12 +27,21 @@
 
                     </ul>
 
-                    <p class="text-muted"></p>
+
 
                     @foreach($user->followers as $follower)
-
                         @include('partials.avatar',['size' => 30, 'user' => $follower])
-                        <p class="text-muted">{{ $follower->name }}</p>
+                        <ul class="list-inline text-muted">
+                            <li><p class="text-muted">{{ $follower->name }}</p></li>
+                            <li>@if($follower->inLine)
+                                    <p><img src="{{asset('/icons/online_20.jpeg')}}">{{trans('messages.inLine')}}</p>
+                                @else
+                                    <p><img src="{{asset('/icons/offline_20.jpeg')}}">{{trans('messages.offLine')}}</p>
+                                @endif
+                            </li>
+                            </ul>
+
+
 
                     @endforeach
 

@@ -36,7 +36,9 @@ return [
     'create_gravatar' => 'Crear gravatar',
     'logout' => 'Sortir',
     'all_users' => 'Tots els usuaris',
-    'postStatus_placeholder' => 'Què estàs pensant?'
+    'postStatus_placeholder' => 'Què estàs pensant?',
+    'inLine' =>'Connectat',
+    'offLine' =>'Desconnectat'
 
 
 

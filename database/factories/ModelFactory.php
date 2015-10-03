@@ -16,6 +16,7 @@ $factory->define(Crimibook\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->email,
         'verified' => true,
+        'inLine' => false,
         'password' => bcrypt('secret'),
 
     ];

@@ -21,6 +21,12 @@
                         $user->name)) !!}
 
                     </h4>
+                    @if($user->inLine)
+                        <p><img src="{{asset('/icons/online_20.jpeg')}}">{{trans('messages.inLine')}}</p>
+                    @else
+                        <p><img src="{{asset('/icons/offline_20.jpeg')}}">{{trans('messages.offLine')}}</p>
+                    @endif
+
 
                 </div>
 
